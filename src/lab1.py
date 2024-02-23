@@ -24,7 +24,7 @@ def find_k_position(num, k):
 
 sorted_num = compare_and_swap(num)
 k_largest = num[-k]
-position = num.index(k_largest)
+position = num[::-1].index(k_largest)
 
 print(f"{k_largest}")
 print(f"{position}")
