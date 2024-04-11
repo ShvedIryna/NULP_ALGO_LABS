@@ -1,0 +1,39 @@
+def have_cycle(graph):
+    visited_vertexes = set()
+    for vertex in graph:
+        if vertex not in visited_vertexes:
+            if dfs(graph, vertex, visited_vertexes,None):
+                return True
+
+    return False
+
+def dfs(graph, vertex, visited_vertexes, parent):
+    visited_vertexes.add(vertex)
+    for neighbor in graph[vertex]:
+        if neighbor not in visited:
+            if dfs(graph, neighbor, visited_vertexes, vertex):
+                return True
+        elif parent != neighbor:
+            return True
+
+    return False
+
+def read_graph_from_inputfile(file_name):
+    graph = {}
+    with open(file_name, 'r') as file:
+        for line in file:
+            vertexes = line.strip().split()
+            vertex = int(vertexes[0])
+            neighbors = [int(vert) for vert in vertexes[1:]]
+            graph[vertex] = neighbors
+        file.close()
+    return graph
+
+def write_result_to_outputfile(file_name, have_cycle):
+    with open(file_name, "w") as file:
+        file.write(str(have_cycle))
+
+if __name__ == "__main":
+    graph = read_graph_from_inputfile_("input.txt")
+    is_cycle = have_cycle(graph)
+    write_result_to_outputfile("output.txt", is_cycle)
