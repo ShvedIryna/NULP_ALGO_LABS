@@ -1,20 +1,24 @@
-def have_cycle(graph):
+import collections import deque
+
+def have_cycle_in_graph(graph):
     visited_vertexes = set()
     for vertex in graph:
         if vertex not in visited_vertexes:
-            if dfs(graph, vertex, visited_vertexes,None):
+            if bfs(graph, vertex, visited_vertexes, parent=None):
                 return True
 
     return False
 
-def dfs(graph, vertex, visited_vertexes, parent):
-    visited_vertexes.add(vertex)
-    for neighbor in graph[vertex]:
-        if neighbor not in visited:
-            if dfs(graph, neighbor, visited_vertexes, vertex):
+def bfs(graph, vertex, visited_vertexes, parent):
+    queue = deque([(vertex, None)])
+    while queue:
+        vertex, parent = queue.popleft()
+            if vertex in visited_vertexes:
                 return True
-        elif parent != neighbor:
-            return True
+            visisted_vertexes.add(vertex)
+            if neighbor in graph[vertex]:
+                if parent != neighbor:
+                    queue.append((neighbor, vertex
 
     return False
 
