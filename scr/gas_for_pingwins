@@ -1,0 +1,32 @@
+from typing import List, Dict
+
+
+def dfs(graph: Dict[str, List[str]], start_point: str) -> List[str]:
+    stack = [start_point]
+    visited = []
+
+    while stack:
+        current_city = stack.pop()
+        if current_city not in visited:
+            visited.append(current_city)
+            stack.extend(graph[current_city])
+    return visited
+
+def build_graph(cities: List[str], gas_lines: List[List[str]]) -> Dict[str, List[str]]:
+    graph = {city: [] for city in cities}
+    for source, destination in gas_lines:
+        if source in graph and destination in graph:
+            graph[source].append(destination)
+            graph[destination].append(source)
+    return graph
+
+def find_unreachable_storage(cities: List[str], storages: List[str], gas_lines: List[List[str]]) -> List[str]:
+    graph = build_graph(cities, gas_lines)
+    reachable_cities = dfs(graph, cities[0])  # Perform DFS from any city
+    reachable_storages = set()
+    for city in reachable_cities:
+        for storage in storages:
+            if storage in graph[city]:
+                reachable_storages.add(storage)
+    unreachable_storage = [storage for storage in storages if storage not in reachable_storages]
+    return unreachable_storage
