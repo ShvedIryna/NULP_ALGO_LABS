@@ -1,4 +1,4 @@
-import collections import deque
+from collections import deque
 
 def have_cycle_in_graph(graph):
     visited_vertexes = set()
@@ -13,12 +13,12 @@ def bfs(graph, vertex, visited_vertexes, parent):
     queue = deque([(vertex, None)])
     while queue:
         vertex, parent = queue.popleft()
-            if vertex in visited_vertexes:
-                return True
-            visisted_vertexes.add(vertex)
-            if neighbor in graph[vertex]:
-                if parent != neighbor:
-                    queue.append((neighbor, vertex
+        if vertex in visited_vertexes:
+            return True
+        visisted_vertexes.add(vertex)
+        for neighbor in graph[vertex]:
+            if parent != neighbor:
+                queue.append((neighbor, vertex
 
     return False
 
