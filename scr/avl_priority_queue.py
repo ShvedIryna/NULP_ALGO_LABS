@@ -1,3 +1,10 @@
+class Node:
+    def __init__(self, value, priority):
+        self.value = value
+        self.priority = priority
+        self.right = None
+        self.left = None
+
 class PriorityQueue:
     def __init__(self):
         self.root = None
@@ -39,14 +46,17 @@ class PriorityQueue:
         else:
             return self.delete_highest_priority_element(current_element.right, current_element)
 
-    def view_tree(self):
+    def display_queue(self):
         if not self.root:
             return None
 
+        result = []
         queue = [self.root]
         while queue:
-            node = queue.pop(0)
-            if node.left:
-                queue.append(node.left)
-            if node.right:
-                queue.append(node.right)
+            current_element = queue.pop(0)
+            result.append(current_element.value)
+            if current_element.left:
+                queue.append(current_element.left)
+            if current_element.right:
+                queue.append(current_element.right)
+        return result
