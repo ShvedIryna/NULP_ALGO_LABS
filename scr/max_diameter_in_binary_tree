@@ -14,5 +14,5 @@ def binary_tree_diameter(self, tree: BinaryTree = None) -> int:
         right_depth = depth(node.right)
         self.max_diameter = max(self.max_diameter, left_depth + right_depth)
         return max(left_depth, right_depth) + 1
-    depth(root)
+    depth(self)
     return self.max_diameter
