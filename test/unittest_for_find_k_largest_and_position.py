@@ -1,5 +1,5 @@
 import unittest
-from lab1 import quick_sort, find_k_largest, find_k_position
+from find_k_largest_and_position import quick_sort, find_k_largest, find_k_position
 
 
 class TestMyFunctions(unittest.TestCase):
