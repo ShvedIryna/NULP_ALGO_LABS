@@ -1,4 +1,4 @@
-from lab2 import min_speed_of_eating_bananas
+from min_speed_of_eating_bananas import min_speed_of_eating_bananas
 import unittest
 
 
