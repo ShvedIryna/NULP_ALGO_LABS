@@ -22,7 +22,7 @@ def build_graph(cities: List[str], storages: List[str], gas_lines: List[List[str
 def find_unreachable_storage(cities: List[str], storages: List[str], gas_lines: List[List[str]]) -> List[str]:
     graph = build_graph(cities, storages, gas_lines)
     visited = []
-    dfs(graph, cities[0], visited)
+    dfs(graph, storages[0], visited)
     reachable_storages = set()
     for city in visited:
         for storage in storages:
