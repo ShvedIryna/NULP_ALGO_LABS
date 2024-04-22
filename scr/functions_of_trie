@@ -1,6 +1,6 @@
 class TrieNode:
     def __init__(self):
-        self.children = [None] * 26
+        self.children = {}
         self.leaf = False
 
 class Trie:
@@ -10,26 +10,22 @@ class Trie:
     def insert_word(self, word = str):
         current_node = self.root
         for letter in word:
-            position = ord(letter) - ord('a')
-            if not current_node.children[position]:
-                current_node.children[position] = TrieNode()
-            current_node = current_node.children[position]
+            current_node = current_node.children[letter]
         current_node.leaf = True
 
     def search_word(self, word: str):
         current_node = self.root
         for letter in word:
-            position = ord(letter) - ord('a')
-            if not current_node.children[position]:
+            current_node = current_node.children.get(letter)
+            if current_node is None:
                 return False
-            current_node = current_node.children[position]
+            
         return current_node.leaf and current_node
 
     def search_trie(self, prefix: str):
         current_node = self.root
         for letter in prefix:
-            position = ord(letter) - ord('a')
-            if not current_node.children[position]:
-                return False
-            current_node = current_node.children[position]
+            current_node = current_node.children.get(letter)
+        if not current_node:
+            return False
         return True
