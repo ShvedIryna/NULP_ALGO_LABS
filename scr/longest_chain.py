@@ -20,11 +20,18 @@ def longest_chain(words):
     return max_chain
 
 
-with open("wchain.in", "r") as file:
-    N = int(file.readline().strip())
-    words = [file.readline().strip() for _ in range(N)]
+def write_and_read_file(input_file, output_file):
+    """
+    Reads words from the input file and writes the result to the output file.
+    Args:
+        input_file (str): Path to the file containing words.
+        output_file (str): Path to the file for writing the result.
+    Returns:
+        None
+    """
+    with open(input_file, "r") as file:
+        words = [line.strip() for line in file.readlines()]
+    max_chain = longest_chain(words)
 
-max_chain_length = longest_chain(words)
-
-with open("wchain.out", "w") as file:
-    file.write(str(max_chain_length))
+    with open(output_file, "w") as file:
+        file.write(str(max_chain))
