@@ -1,4 +1,5 @@
-from min_speed_of_eating_bananas import min_speed_of_eating_bananas
+import os
+from src.min_speed_of_eating_bananas import min_speed_of_eating_bananas
 import unittest
 
 
