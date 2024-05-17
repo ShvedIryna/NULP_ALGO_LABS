@@ -1,7 +1,6 @@
 import unittest
-import sys
-sys.path.append(r'C:\Users\Shved Iryna\PycharmProjects\NULP_ALGO_LABS_1\venv\src')
-from max_flow_of_flowers import ford_fulkerson, max_flow, read_graph_from_inputfile
+import os
+from scr.max_flow_of_flowers import ford_fulkerson, max_flow, read_graph_from_inputfile
 
 class TestMaxFlow(unittest.TestCase):
     def setUp(self):
