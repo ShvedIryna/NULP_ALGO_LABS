@@ -1,5 +1,6 @@
 import unittest
-from max_diameter_in_binary_tree import BinaryTree, binary_tree_diameter
+import os
+from src.max_diameter_in_binary_tree import BinaryTree, binary_tree_diameter
 
 root1 = BinaryTree(1)
 root1.left = BinaryTree(2)

@@ -1,5 +1,6 @@
 import unittest
-from find_k_largest_and_position import quick_sort, find_k_largest, find_k_position
+import os
+from src.find_k_largest_and_position import quick_sort, find_k_largest, find_k_position
 
 
 class TestMyFunctions(unittest.TestCase):

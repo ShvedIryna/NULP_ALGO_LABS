@@ -1,5 +1,6 @@
 import unittest
-from trying import PriorityQueue, Node
+import os
+from src.avl_priority_queue import PriorityQueue, Node
 
 class TestAVLPriorityTree(unittest.TestCase):
     def test_delete_max_priority_function(self):
