@@ -1,6 +1,6 @@
 import unittest
 import os
-from scr.max_flow_of_flowers import ford_fulkerson, max_flow, read_graph_from_inputfile
+from src.max_flow_of_flowers import ford_fulkerson, max_flow, read_graph_from_inputfile
 
 class TestMaxFlow(unittest.TestCase):
     def setUp(self):
