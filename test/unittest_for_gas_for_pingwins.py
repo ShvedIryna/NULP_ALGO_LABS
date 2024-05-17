@@ -1,5 +1,6 @@
 import unittest
-from gas_for_pingwins import dfs, find_unreachable_storage
+import os
+from src.gas_for_pingwins import dfs, find_unreachable_storage
 
 class TestGasPipeline(unittest.TestCase):
     def test_all_storages_reachable(self):
