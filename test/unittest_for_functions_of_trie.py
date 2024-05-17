@@ -1,5 +1,6 @@
 import unittest
-from function_of_trie import TrieNode, Trie
+import os
+from src.gas_for_pingwins import dfs, find_unreachable_storage
 
 class TestTrie(unittest.TestCase):
     def setUp(self):
