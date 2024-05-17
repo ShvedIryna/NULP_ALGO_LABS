@@ -1,5 +1,6 @@
 import unittest
-from have_cycle import have_cycle_in_graph, read_graph_from_inputfile
+import os
+from src.have_cycle import have_cycle_in_graph, read_graph_from_inputfile
 
 
 class TestHaveCycle(unittest.TestCase):
